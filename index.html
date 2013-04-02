@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Canchas de Buenos Aires</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="css/mobile.css">
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+  <![endif]-->
+
+  <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+
+  <link href='http://fonts.googleapis.com/css?family=Tauri' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<header>
+  <div class="navbar"><a class="title" href="index.html">Canchas de Buenos Aires</a></div>
+
+</header>
+
+  <div id="map"></div>
+
+  <script type="text/javascript">
+    var map = L.map('map').setView([-34.6141, -58.4402], 12);
+    // add an OpenStreetMap tile layer
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var allboys = L.marker([-34.6165, -58.49775]).bindPopup('<b>Estadio Islas Malvinas</b><br>All Boys'),
+        argjrs = L.marker([-34.606083, -58.472639]).bindPopup('<b>Estadio Diego Armando Maradona</b><br>Asociación Atlética Argentinos Juniors'),
+        boca = L.marker([-34.635278, -58.364722]).bindPopup('<b>La Bombonera</b><br>Club Atlético Boca Juniors'),
+        velez = L.marker([-34.635361, -58.520722]).bindPopup('<b>Estadio José Amalfitani</b><br>Club Atlético Vélez Sarsfield'),
+        sanlorenzo = L.marker([-34.652083, -58.440111]).bindPopup('<b>Nuevo Gasómetro</b><br>San Lorenzo de Almagro'),
+        river = L.marker([-34.54525, -58.449694]).bindPopup('<b>Monumental de Nuñez</b><br>Club Atlético River Plate'),
+        comunicaciones = L.marker([-34.593722, -58.488528]).bindPopup('<b>Estadio Alfredo Ramos</b><br>Club Comunicaciones'),
+        defbelgrano = L.marker([-34.541167, -58.461833]).bindPopup('<b>Estadio Juan Pasquele</b><br>Club Atlético Defensores de Belgrano'),
+        atlanta = L.marker([-34.594972, -58.449261]).bindPopup('<b>Estadio Don León Kolbovsky</b><br>Club Atlético Atlanta'),
+        ferrocarril = L.marker([-34.618556, -58.447639]).bindPopup('<b>Estadio Arquitecto Ricardo Etcheverri</b><br>Club Ferro Carril Oeste'),
+        nchicago = L.marker([-34.668001, -58.499652]).bindPopup('<b>Estadio Nueva Chicago</b><br>Club Atlético Nueva Chicago'),
+        huracan = L.marker([-34.6435, -58.396528]).bindPopup('<b>Estadio Tomás Adolfo Ducó</b><br>Club Atlético Huracán'),
+        excursionistas = L.marker([-34.55895, -58.443025]).bindPopup('<b>Estadio de Excursionistas</b><br>Club Atlético Excursionistas'),
+        espanol = L.marker([-34.657861, -58.464528]).bindPopup('<b>Estadio Nueva España</b><br>Deportivo Español'),
+        barracas = L.marker([-34.647542, -58.396839]).bindPopup('<b>Estadio Claudio "Chiqui" Tapia</b><br>Club Atlético Barracas Central');
+
+    var estadios = L.layerGroup([allboys, argjrs, boca, velez, sanlorenzo, river, comunicaciones, defbelgrano, atlanta, ferrocarril, nchicago, huracan, excursionistas, espanol, barracas]);
+
+    var overlayMaps = { "Estadios": estadios };
+
+    L.control.layers(overlayMaps).addTo(map);
+
+  </script>
+
+</body>
+
+</html>
